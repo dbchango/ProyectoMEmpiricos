@@ -33,10 +33,11 @@ Widget::Widget(QWidget *parent)
     mModelReservas->select();
     ui->tableView_2->setModel(mModelReservas);
     //cargando datos a la tabla de clientes
-    mModelClientes = new QSqlTableModel(this);
-    mModelClientes->setTable("cliente");
-    mModelClientes->select();
-    ui->tablaClientes->setModel(mModelClientes);
+    Cliente *cliente = new Cliente();
+    cliente->mModelClientes = new QSqlTableModel(this);
+    cliente->mModelClientes->setTable("cliente");
+    cliente->mModelClientes->select();
+    ui->tablaClientes->setModel(cliente->mModelClientes);
 }
 
 Widget::~Widget()
@@ -92,7 +93,7 @@ void Widget::on_detalleReserva_clicked()
 }
 
 void Widget::on_buscarCliente_clicked()
-{
+{/*
     QString filtro ="";
     filtro = ui->filtroNoCedula->text();
     if(filtro != ""){
@@ -103,7 +104,7 @@ void Widget::on_buscarCliente_clicked()
         mModelClientes->setTable("cliente");
         mModelClientes->select();
         return;
-    }
+    }*/
 }
 
 void Widget::on_actualizarCliente_clicked()
@@ -161,7 +162,7 @@ void Widget::on_guardarRegistroCliente_clicked()
 
 void Widget::on_eliminarCliente_clicked()
 {
-
+/*
     if(mModelClientes->removeRow(ui->tablaClientes->currentIndex().row())){
         QMessageBox::information(this, "Información", "Registro de cliente eliminado con éxito");
         mModelClientes->select();
@@ -170,7 +171,7 @@ void Widget::on_eliminarCliente_clicked()
         QMessageBox::critical(this, "Atención!", mModelClientes->lastError().text());
         return;
     }
-
+*/
 
 }
 
@@ -184,5 +185,5 @@ void Widget::on_cancelarRegistroCliente_clicked()
 
 void Widget::on_tablaClientes_activated(const QModelIndex &index)
 {
-    mModelClientes->setFilter("cedula_cliente=");
+    //mModelClientes->setFilter("cedula_cliente=");
 }

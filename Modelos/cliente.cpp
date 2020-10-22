@@ -1,4 +1,5 @@
 #include "cliente.h"
+#include <QSqlQuery>
 
 Cliente::Cliente(QString nombre, QString cedula, QString telefono, QString direccion):
     cedulaCliente(cedula),
@@ -38,5 +39,9 @@ void Cliente::setTelefonoCliente(QString telefono){
 
 void Cliente::setDirecionCliente(QString direccion){
     direccionCliente=direccion;
+}
+
+bool Cliente::buscarCliente(QString idCliente){
+    QSqlQuery *query = new QSqlQuery();
 }
 

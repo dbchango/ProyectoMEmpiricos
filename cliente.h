@@ -3,6 +3,8 @@
 #include <QObject>
 #include <QDate>
 
+class QSqlTableModel;
+
 class Cliente
 {
 public:
@@ -16,6 +18,8 @@ public:
     QString getCedulaCliente();
     QString getTelefonoCliente();
     QString getDireccionCliente();
+    QSqlTableModel *mModelClientes;
+    bool buscarCliente(QString);
 private:
     QString cedulaCliente;
     QString nombreCliente;

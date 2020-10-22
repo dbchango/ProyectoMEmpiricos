@@ -54,7 +54,7 @@ private:
     Ui::Widget *ui;
     QSqlTableModel *mModel;
     QSqlTableModel *mModelReservas;
-    QSqlTableModel *mModelClientes;
+    //QSqlTableModel *mModelClientes;
     QSqlDatabase db;
 };
 #endif // WIDGET_H
